@@ -23,16 +23,24 @@ public class ExceptionExample {
         );
 
         beerLib.stream()
-                .map(this::trySomething)
+                .map(wrap(beer -> doSomething(beer)))
                 .forEach(System.out::println);
     }
 
-    private Beer trySomething(Beer beer) {
-        try {
-            return doSomething(beer);
-        } catch (MyException e) {
-            throw new RuntimeException(e);
-        }
+    //---
+    @FunctionalInterface
+    public interface CheckedFunc<T, R> {
+        public R apply(T t) throws Exception;
+    }
+
+    public <T, R> Function<T, R> wrap(CheckedFunc<T, R> func) {
+        return t -> {
+            try {
+                return func.apply(t);
+            } catch (Exception e) {
+                throw new RuntimeException(e);
+            }
+        };
     }
 
 
