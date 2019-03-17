@@ -18,8 +18,7 @@ public class OptionalExample2 {
 
         beerLib.stream()
                 .map(Beer2::getDescription) //returns optional
-                .filter(Optional::isPresent)
-                .map(Optional::get)
+                .flatMap(o -> o.map(Stream::of).orElse(Stream.empty()))
                 .forEach(System.out::println);
 
 
