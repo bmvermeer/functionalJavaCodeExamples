@@ -23,7 +23,13 @@ public class ExceptionExample {
         );
 
         beerLib.stream()
-                .map(beer -> doSomething(beer))
+                .map(beer -> {
+                    try {
+                        return doSomething(beer);
+                    } catch (MyException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
                 .forEach(System.out::println);
     }
 
