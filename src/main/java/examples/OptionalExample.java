@@ -9,7 +9,7 @@ public class OptionalExample {
 
         var foo = maybeString
                 .map(this::runIfExist)
-                .orElse(runIfEmpty());
+                .orElseGet(() -> runIfEmpty());
 
         System.out.println(foo);
     }
