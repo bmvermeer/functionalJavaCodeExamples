@@ -5,11 +5,11 @@ import java.util.Optional;
 public class OptionalExample {
 
     public void execute() {
-        Optional<String> maybeString = Optional.empty();
+        var maybeString = Optional.of("FOO");
 
         var foo = maybeString
                 .map(this::runIfExist)
-                .orElseThrow(() -> new RuntimeException("something went wrong"));
+                .orElse(runIfEmpty());
 
         System.out.println(foo);
     }
@@ -20,6 +20,10 @@ public class OptionalExample {
         return string;
     }
 
+    private String runIfEmpty() {
+        System.out.println("only run if optional is EMPTY");
+        return "EMPTY";
+    }
 
     public static void main(String[] args) {
         OptionalExample oe = new OptionalExample();
