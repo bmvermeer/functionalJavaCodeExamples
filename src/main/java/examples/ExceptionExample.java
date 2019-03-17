@@ -23,14 +23,16 @@ public class ExceptionExample {
         );
 
         beerLib.stream()
-                .map(beer -> {
-                    try {
-                        return doSomething(beer);
-                    } catch (MyException e) {
-                        throw new RuntimeException(e);
-                    }
-                })
+                .map(this::trySomething)
                 .forEach(System.out::println);
+    }
+
+    private Beer trySomething(Beer beer) {
+        try {
+            return doSomething(beer);
+        } catch (MyException e) {
+            throw new RuntimeException(e);
+        }
     }
 
 
