@@ -5,7 +5,7 @@ import java.util.Optional;
 public class OptionalExample {
 
     public void execute() {
-        var maybeString = Optional.of("FOO");
+        Optional<String> maybeString = Optional.empty();
 
         var foo = maybeString
                 .map(this::runIfExist)
