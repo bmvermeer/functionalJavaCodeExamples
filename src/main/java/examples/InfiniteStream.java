@@ -6,8 +6,8 @@ public class InfiniteStream {
 
     public void execute() {
         IntStream.iterate(0, i -> (i + 1) % 2)
-                .limit(10)
                 .distinct()
+                .limit(10)
                 .forEach(System.out::println);
     }
 
