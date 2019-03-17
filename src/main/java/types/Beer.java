@@ -14,8 +14,9 @@ public class Beer {
     String name;
     Double alcohol;
 
-    public void setName(String name) {
+    public Beer setName(String name) {
         this.name = name;
+        return this;
     }
 
 
