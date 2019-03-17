@@ -23,7 +23,7 @@ public class ExceptionExample {
         );
 
         beerLib.stream()
-//                .map(beer -> doSomething(beer))
+                .map(beer -> doSomething(beer))
                 .forEach(System.out::println);
     }
 
