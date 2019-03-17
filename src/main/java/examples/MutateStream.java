@@ -15,6 +15,7 @@ public class MutateStream {
                 new Beer("Amstel", 5.1));
 
         var beersNew = beers.stream()
+                .map(beer -> beer.setName("AWESOME " + beer.getName()))
                 .collect(Collectors.toList());
 
         beersNew.forEach(System.out::println);
