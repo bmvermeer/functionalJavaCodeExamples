@@ -6,10 +6,9 @@ public class InfiniteStream {
 
     public void execute() {
         IntStream.iterate(0, i -> (i + 1) % 2) //0,1,0,1,0,1 etc.
-                .parallel()
+                .limit(10) //1-0, 2-1, 3-0, 4-1, 5-0 etc.
                 .distinct() //0,1
-                .limit(10) //1-0, 2-1, 3-?
-                .forEach(System.out::println); //runs forever
+                .forEach(System.out::println); //runs will terminate
     }
 
 
