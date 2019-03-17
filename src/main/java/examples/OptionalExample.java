@@ -9,7 +9,7 @@ public class OptionalExample {
 
         var foo = maybeString
                 .map(this::runIfExist)
-                .orElseGet(() -> runIfEmpty());
+                .orElseThrow(() -> new RuntimeException("something went wrong"));
 
         System.out.println(foo);
     }
@@ -18,11 +18,6 @@ public class OptionalExample {
     private String runIfExist(String string) {
         System.out.println("only run if optional is filled");
         return string;
-    }
-
-    private String runIfEmpty() {
-        System.out.println("only run if optional is empty");
-        return "EMPTY";
     }
 
 

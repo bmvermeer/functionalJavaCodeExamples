@@ -23,25 +23,10 @@ public class ExceptionExample {
         );
 
         beerLib.stream()
-//                .map(Either.liftWithValue(beer -> doSomething(beer)))
+//                .map(beer -> doSomething(beer))
                 .forEach(System.out::println);
     }
 
-
-    @FunctionalInterface
-    public interface CheckFunc<T, R> {
-        R apply(T t) throws Exception;
-    }
-
-    public <T, R> Function<T, R> wrap(CheckFunc<T, R> func) {
-        return t -> {
-            try {
-                return func.apply(t);
-            } catch (Exception e) {
-                throw new RuntimeException();
-            }
-        };
-    }
 
     public static void main(String[] args) {
         ExceptionExample ee = new ExceptionExample();

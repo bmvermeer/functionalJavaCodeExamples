@@ -14,9 +14,11 @@ public class Beer {
     String name;
     Double alcohol;
 
-    public Beer setName(String name) {
-        return new Beer(name, this.alcohol);
+    public void setName(String name) {
+        this.name = name;
     }
+
+
 
 
 }
