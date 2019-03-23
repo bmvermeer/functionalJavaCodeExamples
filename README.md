@@ -5,4 +5,6 @@
 
 Brian Vermeer
 
+For code examples look at the git history step by step.
+
 22-3-2019 
